@@ -1,0 +1,109 @@
+{% extends "base.html" %} {% block title %}Recommendation{% endblock %} {% block content
+  %}
+  <div class="col-auto">
+  </div>
+  <form method="POST">
+
+  <div class="row mb-3">
+    <label for="table" class="col-sm-2 col-form-label">Vehicle ID</label>
+    <div class="col-sm-10">
+      <input
+      type="{{select}}"
+      class="form-control"
+      id="{{select}}"
+      name="table"
+    />Last entered: {{select}}
+
+      </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Recommend</button>
+
+  </form>
+
+
+  <br>
+  <br>
+
+  <div class="col-auto" style="padding: 5% 10% ;">
+    <h1>Selected Vehicle</h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">check</th>
+
+          {% for n in col_name %}
+          <th scope="col">{{n}}</th>
+	     {% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in data %}
+        <tr>
+          <td><input type="checkbox" name={{row[0]}} />&nbsp;</td>
+          {% for n in row %}
+	     <td>{{n}}</td>
+
+	     {% endfor %}
+      </tr>
+       {% endfor %}
+    </tbody>
+</table>
+</div>
+
+  <div class="col-auto" style="padding: 5% 10% ;">
+    <h1>Recommendation based on manufacturer</h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">check</th>
+
+          {% for n in col_name %}
+          <th scope="col">{{n}}</th>
+	     {% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in data1 %}
+        <tr>
+          <td><input type="checkbox" name={{row[0]}} />&nbsp;</td>
+          {% for n in row %}
+	     <td>{{n}}</td>
+
+	     {% endfor %}
+      </tr>
+       {% endfor %}
+
+
+      </tbody>
+    </table>
+    </div>  
+  
+    <div class="col-auto" style="padding: 5% 10% ;">
+      <h1>Recommendation based on Price</h1>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">check</th>
+  
+            {% for n in col_name %}
+            <th scope="col">{{n}}</th>
+         {% endfor %}
+          </tr>
+        </thead>
+        <tbody>
+          {% for row in data2 %}
+          <tr>
+            <td><input type="checkbox" name={{row[0]}} />&nbsp;</td>
+            {% for n in row %}
+         <td>{{n}}</td>
+  
+         {% endfor %}
+        </tr>
+         {% endfor %}
+  
+  
+        </tbody>
+      </table>
+      </div>  
+  {% endblock %}
+  
