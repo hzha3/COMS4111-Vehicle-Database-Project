@@ -1,0 +1,45 @@
+{% extends "base_admin.html" %} {% block title %}SQL Command Line{% endblock %} {% block content
+  %}
+  <h1>SQL Command Line</h1>
+  <div>
+    car_sale_transaction: c_id , d_id , i_id , manufacturer_name , s_id , t_id , transaction_date , v_id<br>
+    customer: annual_income , c_id , customer_address , customer_name , gender , phone<br>
+    dealership: d_id , d_sale , dealer_add , dealer_name <br>
+    insurance: difference , full_coverage , insurance_id , minimum_coverage , state <br>
+    manufacturer: employees , estimated_annual_revenue , headquarter , manufacturer_name , number_of_models_in_us , type <br>
+    vehicle: body_style , color , engine , manufacturer , model , price_in_thousands , transmission , v_id <br>
+    salesman: s_id	salesman_name	s_sales	s_university<br>
+
+<br>
+
+  </div>
+
+  <form method="POST">
+    <textarea name="note" id="note" class="form-control">
+      {{sql}}
+    </textarea>
+    <br />
+    <div align="center">
+      <button type="submit" class="btn btn-primary">Run</button>
+
+    </div>
+  </form>
+<div class = "container">
+  <table class="display" id="example">
+    <thead>
+      
+    </thead>
+    <tbody>
+      {% for row in data %}
+      <tr>
+        {% for n in row %}
+     <td>{{n}}</td>
+     {% endfor %}
+    </tr>
+     {% endfor %}
+
+
+    </tbody>
+  </table>
+</div>
+{% endblock %}
