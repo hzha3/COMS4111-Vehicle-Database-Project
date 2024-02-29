@@ -1,0 +1,127 @@
+{% extends "base.html" %} {% block title %}Cart{% endblock %} {% block content
+  %}
+  <div class="col-auto text-center">
+    <h1>Checkout</h1>
+  </div>
+  
+  <div class="col-auto" style="padding: 5% 10% ;">
+  
+  <form method="POST">
+    
+    <div class="row mb-3">
+      <label for="tid" class="col-sm-2 col-form-label">TID:</label>
+      <div class="col-sm-10">
+        <p1> {{tid}}</p1>
+        </div>
+    </div>
+  
+    <div class="row mb-3">
+      <label for="date" class="col-sm-2 col-form-label">date:</label>
+      <div class="col-sm-10">
+        <p1> {{date}}</p1>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+      <label for="vid" class="col-sm-2 col-form-label">Vehicle ID:</label>
+      <div class="col-sm-10">
+        <input
+        type="vid"
+        class="form-control"
+        id="vid"
+        name="vid"
+        placeholder="Enter vid"
+      />
+        </div>
+    </div>
+
+    <div class="row mb-3">
+      <label for="did" class="col-sm-2 col-form-label">Dealer ID:</label>
+      <div class="col-sm-10">
+        <input
+        type="did"
+        class="form-control"
+        id="did"
+        name="did"
+        placeholder="Enter Dealer ID"
+      />
+        </div>
+    </div>
+
+    <div class="row mb-3">
+      <label for="iid" class="col-sm-2 col-form-label">Insurance ID:</label>
+      <div class="col-sm-10">
+        <input
+        type="iid"
+        class="form-control"
+        id="iid"
+        name="iid"
+        placeholder="Enter Insurance ID"
+      />
+        </div>
+    </div>
+
+    <div class="row mb-3">
+      <label for="cid" class="col-sm-2 col-form-label">CID:</label>
+      <div class="col-sm-10">
+        <input
+        type="cid"
+        class="form-control"
+        id="cid"
+        name="cid"
+        placeholder="Enter cid"
+      />
+        </div>
+    </div>
+  
+    
+  
+    </div>
+    <button type="submit" class="btn btn-primary">Checkout</button>
+  </form>
+  
+  <br>
+  
+  <br>
+  <br>
+
+  
+
+{% for row in output %}
+<div class = "container">
+  <h1>Order Created</h1>
+  <p1>{{row[0]}}</p1>
+  <p1>date: {{row[1]}}</p1>
+
+  <table class="table">
+    <tbody>
+      <tr>
+    </tr>
+    </tbody>
+  </table>
+</div>
+{% endfor %}
+
+{% for i,output in [(vehicle,output1),(customer,output2),(dealer,output4),(insurance,output5),(manufacturer,output6)] %}
+
+<div class = "container">
+  <p1>{{i}}</p1>
+  <table class="table">
+    
+    <tbody>
+      {% for row in output %}
+      <tr>
+        {% for n in row %}
+     <td>{{n}}</td>
+     {% endfor %}
+    </tr>
+     {% endfor %}
+
+
+    </tbody>
+  </table>
+</div>
+{% endfor %}
+  
+  {% endblock %}
+  
