@@ -1,4 +1,3 @@
-# COMS4111-Vehicle-Database-Project
 # Vehicle Database Project part 4
 Group 106 : 
 Hongwei Zha (hz2816@columbia.edu)
