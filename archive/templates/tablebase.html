@@ -1,0 +1,31 @@
+{% extends "base.html" %} {% block title %}{{col_name[0][2]}} List{% endblock %} {% block content
+  %}
+  <div class="col-auto text-center">
+    <h1>{{col_name[0][2]}} List</h1>
+  </div>
+  
+  <div class="col-auto" style="padding: 5% 10% ;">
+    <table class="table">
+      <thead>
+        <tr>
+          {% for n in col_name %}
+          <th scope="col">{{n[3]}}</th>
+	     {% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in data %}
+        <tr>
+          {% for n in row %}
+	     <td>{{n}}</td>
+	     {% endfor %}
+      </tr>
+       {% endfor %}
+
+
+      </tbody>
+    </table>
+    </div>
+  
+  {% endblock %}
+  
