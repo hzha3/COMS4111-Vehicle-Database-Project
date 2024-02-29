@@ -1,0 +1,51 @@
+{% extends "base_admin.html" %} {% block title %}Data{% endblock %} {% block content
+  %}
+  <div class="col-auto">
+    <h1>Dataset Selection</h1>
+  </div>
+  <form method="POST">
+
+  <div class="row mb-3">
+    <label for="password" class="col-sm-2 col-form-label">Table</label>
+    <select class="form-select" name= "table" aria-label="Default select example">
+    <option selected>{{select}}</option>
+    <option value="vehicle">vehicle</option>
+
+    {% for n in table_name %}
+    <option value="{{n}}">{{n}}</option>
+    {% endfor %}
+  </select>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Refresh</button>
+
+  </form>
+
+
+
+
+  
+  <div class="col-auto" style="padding: 5% 10% ;">
+    <table class="table" id = "table1">
+      <thead>
+        <tr>
+          {% for n in col_name %}
+          <th scope="col">{{n}}</th>
+	     {% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in data %}
+        <tr>
+          {% for n in row %}
+	     <td>{{n}}</td>
+	     {% endfor %}
+      </tr>
+       {% endfor %}
+
+
+      </tbody>
+    </table>
+    </div>  
+  {% endblock %}
+  
